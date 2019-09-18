@@ -1,4 +1,7 @@
-int a =8000;
-oui;
-d;
-k;
+#include <iostream>
+
+int main(){
+        std::cout << "Hello world!" << std::endl;
+        system("PAUSE");
+return 0;
+}
