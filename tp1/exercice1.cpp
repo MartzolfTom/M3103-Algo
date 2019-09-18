@@ -1,8 +1,9 @@
 #include <iostream>
+using namespace std;
 
 int main(){
-        std::cout << "Hello world!" << std::endl;
-        std::cout << "oui!" << std::endl;
-        system("PAUSE");
+        cout << "Hello world!"<<endl;
+        cout << "oui!"<<endl;
+      system("PAUSE");
 return 0;
 }
