@@ -1,7 +1,14 @@
 #include <iostream>
 using namespace std;
 
-
+///////////////////////////
+///  fonction puissanceRecursive qui calcule la puissance a^n
+///  de deux nombres entiers a et n de tel sorte que a^n/2
+///  ne soit calculé qu'une seule fois
+///
+///  entrée : 2 entiers
+///  sortie : un entier
+/////////////////////////
 
 int puissanceRecursive(int a,int n){
 
@@ -22,7 +29,16 @@ else{
 
 }
 
-int controlesup(){
+
+///////////////////////////
+///  fonction controleSup qui permet de saisir
+///   un entier positif et de le controler
+///
+///  entrée : rien
+///  sortie : un entier positif
+/////////////////////////
+
+int controleSup(){
   int n =0;
   cout<<"saisir valeur de n :";
   cin>>n;
@@ -32,7 +48,7 @@ int controlesup(){
   }
   return n;
 }
-
+ 
 int main(){
 
   int n = 0 ;
