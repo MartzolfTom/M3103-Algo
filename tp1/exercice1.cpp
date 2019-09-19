@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-///////////////////////////
-///  fonction controleSup qui permet de saisir
+///////////////////////////////////////////////
+///  fonction SaisieEntierPositif qui permet de saisir
 ///   un entier positif et de le controler
 ///
 ///  entrée : rien
 ///  sortie : un entier positif
-/////////////////////////
-int controleSup(){
+///////////////////////////////////////////////
+int SaisieEntierPositif(){
   int n = 0;
   cin>>n;
   while(n<0){
@@ -18,7 +18,7 @@ int controleSup(){
   return n;
 }
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 //Description : retourne la somme des premiers entiers pour un certain chiffre
 //
 //Entrees : le nombre d'entiers premiers a additionner
@@ -28,7 +28,7 @@ int controleSup(){
 //Pre-Conditions : l'entier en entree ne doit pas etre negatif
 //
 //Post-Condition : aucune
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 int sommePremiers(int n){
   if (n > 0) {
     return n + sommePremiers(n - 1);
@@ -50,7 +50,7 @@ int main(){
       int n = 0 ;
 
       cout << "Rentrer un entier : ";
-      n = controleSup();
+      n = SaisieEntierPositif();
       cout<< endl << "somme des " << n <<" premiers entiers : " << sommePremiers(n);
 return 0;
 }

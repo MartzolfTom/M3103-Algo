@@ -2,13 +2,13 @@
 using namespace std;
 
 ///////////////////////////
-///  fonction controleSup qui permet de saisir
+///  fonction SaisieEntierPositif qui permet de saisir
 ///   un entier positif et de le controler
 ///
 ///  entrée : rien
 ///  sortie : un entier positif
 /////////////////////////
-int controleSup(){
+int SaisieEntierPositif(){
   int n = 0;
   cin>>n;
   while(n<0){
@@ -57,9 +57,9 @@ int main(){
   b = 0;
 
   cout << "Rentrer le premier chiffre : ";
-  a = controleSup();
+  a = SaisieEntierPositif();
   cout << "Rentrer le second chiffre : ";
-  b = controleSup();
+  b = SaisieEntierPositif();
 
   resultat = PGCD(a,b);
   cout << "voici le PGCD de " << a << " et " << b << " : " << resultat;

@@ -21,7 +21,7 @@ if ( n == 1){
 }
 
 if(n%2==0){
-  return  puissanceRecursive(a,n/2) * puissanceRecursive(a,n/2);
+  return puissanceRecursive(a,n/2) * puissanceRecursive(a,n/2);
 }
 else{
   return a*puissanceRecursive(a,(n-1)/2) * puissanceRecursive(a,(n-1)/2);
@@ -31,14 +31,14 @@ else{
 
 
 ///////////////////////////
-///  fonction controleSup qui permet de saisir
+///  fonction SaisieEntierPositif qui permet de saisir
 ///   un entier positif et de le controler
 ///
 ///  entrée : rien
 ///  sortie : un entier positif
 /////////////////////////
 
-int controleSup(){
+int SaisieEntierPositif(){
   int n =0;
   cout<<"saisir valeur de n :";
   cin>>n;
@@ -48,7 +48,7 @@ int controleSup(){
   }
   return n;
 }
- 
+
 int main(){
 
   int n = 0 ;
@@ -56,7 +56,7 @@ int main(){
 
   cout<< "saisir valeur de a :";
   cin>>a;
-  n=controlesup();
+  n=SaisieEntierPositif();
   cout<< endl << "Valeur de " << a<<"^" << n<< "  : " << puissanceRecursive(a,n);
 return 0;
 
