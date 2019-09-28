@@ -1,8 +1,24 @@
 #include <iostream>
 using namespace std;
 
+
+
+//////////////////////////////////////////////////////////////////
+//Description : procédure de tri rapide récursive, triant un tableau d'entier
+//
+//Entrees : tableau d'entiers non trié, deux entier a et b correspondant
+//            à la position du premier entier (low) et à celle du dernier (hight)
+//
+//Sorties : tableau d'entier trié
+//
+//Pre-Conditions : a et b < 0, a et b < taille du tableau, b>=a
+//
+//Post-Condition : aucune
+//////////////////////////////////////////////////////////////////
+
+
 void TriRapide( int tableau[], int a, int b ){
-  int pivot;
+  int pivot;  // élément qui va servir de référence pour palcer avant ou après lui les différets éléments
   int i,j ; // pour parcourir le tableau
   int ip, jp; // pour l'écgande de valeurs
   int temp; // variable tampon pour l'échange
@@ -10,17 +26,17 @@ void TriRapide( int tableau[], int a, int b ){
   if(a<b){
     i=a;
     j=b;
-    pivot=tableau[((a+b)/2)];
+    pivot=tableau[((a+b)/2)];   // assignation du pivot
     while(i<=j){
       ip=i;
-      while(tableau[ip]<pivot){
+      while(tableau[ip]<pivot){   // boucle pour choisir l'élément situé avant le pivot
         ip=ip+1;
       }
       jp=j;
-      while(tableau[jp]> pivot){
+      while(tableau[jp]> pivot){  // boucle pour choisir l'élément situé après le pivot
         jp=jp-1;
       }
-      if(ip<=jp){
+      if(ip<=jp){            // échange des éléments
         temp=tableau[ip];
         tableau[ip]=tableau[jp];
         tableau[jp]=temp;
