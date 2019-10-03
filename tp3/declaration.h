@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DECLARATION_H
+#define DECLARATION_H
 
 struct maillon
 {
@@ -14,3 +15,6 @@ struct FileAttente
 
 FileAttente fileNouv();
 void AjouterQueue(FileAttente& file,int valeur);
+void retirerTete(FileAttente& file);
+
+#endif
