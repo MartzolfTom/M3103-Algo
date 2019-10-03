@@ -16,5 +16,7 @@ struct FileAttente
 FileAttente fileNouv();
 void AjouterQueue(FileAttente& file,int valeur);
 void retirerTete(FileAttente& file);
+void ConsulterTeteFile(FileAttente file);
+int longueurChaine(FileAttente file);
 
 #endif

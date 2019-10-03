@@ -30,23 +30,20 @@ int main()
 
    cout << "saisir choix :";
    cin >> choix;
-   switch (choix)   // structure selon affichant un menu pour le choix de l'exercice a execute
-   {                // chaque choix appelle une procedure executant l'exercice en question
-            // sauf le dernier choix permettant de quitter la structure selon
+   switch (choix) {  // structure selon affichant un menu pour le choix de l'exercice a execute
+   //chaque choix appelle une procedure executant l'exercice en question
+   // sauf le dernier choix permettant de quitter la structure selon
    case 1:
-
-   cout<<"saisir valeur a ajouter en queue : ";
-   cin>>valeur;
-
-   AjouterQueue(file,valeur);
+      cout<<"saisir valeur a ajouter en queue : ";
+      cin>>valeur;
+      AjouterQueue(file,valeur);
+      break;
+   case 2: retirerTete(file);
      break;
-   case 2:  //retirerTete(file);
+   case 3: ConsulterTeteFile(file);
      break;
-   case 3: // exo3()
-     break;
-   case 4:
-   // bite
-     break;
+   case 4: cout << "longueur de la chaine : " << longueurChaine(file) << endl;
+      break;
    case 5: cout << "au revoir";
       continuer = false;
       break;
@@ -54,10 +51,6 @@ int main()
       continuer = false;
       break;
    }
-   system("cls");
-
  }
- system("pause");
  return 0;
-
 }
