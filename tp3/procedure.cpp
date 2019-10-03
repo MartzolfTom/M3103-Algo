@@ -1,7 +1,5 @@
-
 #include "declaration.h"
-
-
+/*
 FileAttente fileNouv(){
 
   FileAttente file;
@@ -23,3 +21,4 @@ nouvMaillon= new maillon();
 *file.queue=nouvMaillon;
 file.queue=nouvMaillon;
 }
+*/
