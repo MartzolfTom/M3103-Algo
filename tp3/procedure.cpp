@@ -1,11 +1,11 @@
 #include "declaration.h"
-/*
+
 FileAttente fileNouv(){
 
   FileAttente file;
 
-  file.tete=null;
-  file.queue=null;
+  (file).tete=nullptr;
+  (file).queue=nullptr;
 
   return file;
 }
@@ -16,9 +16,7 @@ maillon *nouvMaillon;
 
 nouvMaillon= new maillon();
 
-*nouvMaillon.valeur=valeur;
-*nouvMaillon.suivant=null;
-*file.queue=nouvMaillon;
-file.queue=nouvMaillon;
+(*nouvMaillon).valeur=valeur;
+(*nouvMaillon).suivant=nullptr;
+(file).queue=nouvMaillon;
 }
-*/

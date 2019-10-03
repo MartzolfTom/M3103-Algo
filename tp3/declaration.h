@@ -6,7 +6,7 @@ struct maillon
     int valeur;
     maillon *suivant;
 };
-/*
+
 struct FileAttente
 {
     maillon *tete;
@@ -15,6 +15,5 @@ struct FileAttente
 
 FileAttente fileNouv();
 void AjouterQueue(FileAttente& file,int valeur);
-*/
 
 #endif

@@ -7,8 +7,8 @@ int main()
 {
  int choix;    // variable pour le menu
  bool continuer; // variable pour la repetition du menu
- //FileAttente file=fileNouv();
- int x=5;
+ FileAttente file=fileNouv();
+ int valeur;
 
  cout << "File d'attente";
  cout << endl<<endl<<endl;
@@ -33,7 +33,12 @@ int main()
    switch (choix)   // structure selon affichant un menu pour le choix de l'exercice a execute
    {                // chaque choix appelle une procedure executant l'exercice en question
             // sauf le dernier choix permettant de quitter la structure selon
-   case 1:// AjouterQueue(file,x);
+   case 1:
+
+   cout<<"saisir valeur a ajouter en queue : ";
+   cin>>valeur;
+
+   AjouterQueue(file,valeur);
      break;
    case 2:  //exo2();
      break;
