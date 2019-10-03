@@ -8,7 +8,7 @@ int main()
  int choix;    // variable pour le menu
  bool continuer; // variable pour la repetition du menu
  FileAttente file = fileNouv();
- int x=5;
+ int valeur;
 
  cout << "File d'attente";
  cout << endl<<endl<<endl;
