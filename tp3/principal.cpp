@@ -9,19 +9,22 @@ int main()
  bool continuer; // variable pour la repetition du menu
 
 
-
+ cout << "File d'attente";
+ cout << endl<<endl<<endl;
 
  continuer = true;
 
  while (continuer == true)
  {
-   cout << "1 : exercice 1";
+   cout << "1 : Ajouter une personne en queue";
    cout << endl;
-   cout << "2 : exercice 2";
+   cout << "2 : Retirer la personne en tete";
    cout << endl;
-   cout << "3 : exercice 3";
+   cout << "3 : Consulter la personne en tete de file";
    cout << endl;
-   cout << "4 : quitter";
+   cout << "4 : Calculer la longueur de la file d'attente";
+   cout << endl;
+   cout << "5 : Quitter";
    cout << endl;
 
    cout << "saisir choix :";
@@ -31,12 +34,15 @@ int main()
             // sauf le dernier choix permettant de quitter la structure selon
    case 1: // exo1()
      break;
-   case 2:  exo2();
+   case 2:  //exo2();
      break;
    case 3: // exo3()
      break;
-   case 4: cout << "au revoir";
-     continuer = false;
+   case 4:
+   // bite
+     break;
+   case 5: cout << "au revoir";
+      continuer = false;
      break;
    default: cout << "erreur ";
           continuer = false;
