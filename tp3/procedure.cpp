@@ -6,8 +6,8 @@ FileAttente fileNouv(){
 
   FileAttente file;
 
-  file.tete=NULL;
-  file.queue=NULL;
+  (file).tete=nullptr;
+  (file).queue=nullptr;
 
   return file;
 }
@@ -18,10 +18,9 @@ maillon *nouvMaillon;
 
 nouvMaillon= new maillon();
 
-*nouvMaillon.valeur=valeur;
-*nouvMaillon.suivant=NULL;
-*file.queue=nouvMaillon;
-file.queue=nouvMaillon;
+(*nouvMaillon).valeur=valeur;
+(*nouvMaillon).suivant=nullptr;
+(file).queue=nouvMaillon;
 }
 
 void retirerFinQueue(FileAttente& file){
@@ -33,7 +32,7 @@ void retirerFinQueue(FileAttente& file){
   free(file.tete);
   file.tete = buffer;
 }
-
+/*
 void numeroTeteFile(FileAttente file){
   cout << "valeur de la tete de file : " (*file.tete).valeur;
-}
+}*/

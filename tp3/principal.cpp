@@ -40,7 +40,7 @@ int main()
 
    AjouterQueue(file,valeur);
      break;
-   case 2:  retirerTete(file);
+   case 2:  //retirerTete(file);
      break;
    case 3: // exo3()
      break;
