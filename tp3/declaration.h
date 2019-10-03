@@ -8,6 +8,6 @@ struct FileAttente
 
 struct maillon
 {
-    int numero;
+    int valeur;
     maillon *suivant;
 };
