@@ -1,7 +1,6 @@
 
 #include "declaration.h"
 
-
 FileAttente fileNouv(){
 
   FileAttente file;
@@ -22,4 +21,10 @@ nouvMaillon= new maillon();
 *nouvMaillon.suivant=null;
 *file.queue=nouvMaillon;
 file.queue=nouvMaillon;
+}
+
+void retirerFinQueue(FileAttente file){
+  maillon *buffer;
+
+  *buffer = file.tete;
 }
