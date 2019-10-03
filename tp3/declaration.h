@@ -1,13 +1,16 @@
 #pragma once
 
+struct maillon
+{
+    int valeur;
+    maillon *suivant;
+};
+
 struct FileAttente
 {
     maillon *tete;
     maillon *queue;
 };
 
-struct maillon
-{
-    int valeur;
-    maillon *suivant;
-};
+FileAttente fileNouv();
+void AjouterQueue(FileAttente& file,int valeur);

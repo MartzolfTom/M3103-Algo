@@ -1,10 +1,25 @@
 
-#include "outils.h"
+#include "declaration.h"
 
-//////////////////////////////////////////
-/// Procedure Datelendemain
-///
-/// Procédure calculant la date du lendemain pour une sate saisie
-///            Entree : jour : entier, mois : entier, annee : entier
-///            Sortie : jour : entier, mois : entier, annee : entier
-//////////////////////////////////////////
+
+FileAttente fileNouv(){
+
+  FileAttente file;
+
+  file.tete=null;
+  file.queue=null;
+
+  return file;
+}
+
+void AjouterQueue(FileAttente& file,int valeur){
+
+maillon *nouvMaillon;
+
+nouvMaillon= new maillon();
+
+*nouvMaillon.valeur=valeur;
+*nouvMaillon.suivant=null;
+*file.queue=nouvMaillon;
+file.queue=nouvMaillon;
+}
