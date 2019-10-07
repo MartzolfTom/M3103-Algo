@@ -1,56 +1,88 @@
-#include<iostream>
-#include "declaration.h"
+#include <iostream>
+#include "FileAttente.hpp"
 using namespace std;
 
-int main()
-
+FileAttente fileNouv()
 {
- int choix;    // variable pour le menu
- bool continuer; // variable pour la repetition du menu
- FileAttente file = fileNouv();
- int valeur;
+  FileAttente file;
 
- cout << "File d'attente";
- cout << endl<<endl<<endl;
+  file.tete = nullptr;
+  file.queue = nullptr;
 
- continuer = true;
+  return file;
+}
 
- while (continuer == true)
- {
-   cout << "1 : Ajouter une personne en queue";
-   cout << endl;
-   cout << "2 : Retirer la personne en tete";
-   cout << endl;
-   cout << "3 : Consulter la personne en tete de file";
-   cout << endl;
-   cout << "4 : Calculer la longueur de la file d'attente";
-   cout << endl;
-   cout << "5 : Quitter";
-   cout << endl;
+void ajouterQueue(FileAttente& file, char personne[20])
+{
+  //on prepare un nouveau maillon a ajouter a notre file
+  int i = 0;
+  maillon *nouvMaillon;
+  nouvMaillon = new maillon();
 
-   cout << "saisir choix :";
-   cin >> choix;
-   switch (choix) {  // structure selon affichant un menu pour le choix de l'exercice a execute
-   //chaque choix appelle une procedure executant l'exercice en question
-   // sauf le dernier choix permettant de quitter la structure selon
-   case 1:
-      cout<<"saisir valeur a ajouter en queue : ";
-      cin>>valeur;
-      AjouterQueue(file,valeur);
-      break;
-   case 2: retirerTete(file);
-     break;
-   case 3: ConsulterTeteFile(file);
-     break;
-   case 4: cout << "longueur de la chaine : " << longueurChaine(file) << endl;
-      break;
-   case 5: cout << "au revoir";
-      continuer = false;
-      break;
-   default: cout << "erreur ";
-      continuer = false;
-      break;
-   }
- }
- return 0;
+  //on rentre la chaine en entree dans le maillon en preparation
+  while (personne[i] != '\0') {
+    (*nouvMaillon).personne[i] = personne[i];
+    i++;
+  }
+  (*nouvMaillon).personne[i] = '\0';
+
+  //on attribue ce nouveau maillon a notre file
+  (*nouvMaillon).suivant = nullptr;
+  if (file.tete == nullptr)
+  {
+    file.tete = nouvMaillon;
+    file.queue = nouvMaillon;
+  }
+  else
+  {
+    (*file.queue).suivant = nouvMaillon;
+  }
+  file.queue = nouvMaillon;
+}
+
+void retirerTete(FileAttente &file)
+{
+  if (file.tete == nullptr)
+  {
+    cout << "Il n'y a rien a supprimmer." << endl;
+  }
+  else
+  {
+    maillon *buffer;
+    buffer = (*file.tete).suivant;
+    delete file.tete;
+    file.tete = buffer;
+  }
+
+  //si jamais la longueur ed la chaine est de 0 ou 1, alors la queue est la meme que la tete
+  if (longueurFile(file) <= 1) {
+    file.queue = file.tete;
+  }
+}
+
+void ConsulterTeteFile(FileAttente file)
+{
+  if (file.tete == nullptr)
+  {
+    cout << "La file est vide." << endl;
+  }
+  else
+  {
+    cout << "Valeur de la tete de file : " << (*file.tete).personne << endl;
+  }
+}
+
+int longueurFile(FileAttente file)
+{
+  maillon *maillon;
+  int longueur = 0;
+  maillon = file.tete;
+
+  while (maillon != nullptr)
+  {
+    maillon = (*maillon).suivant;
+    longueur++;
+  }
+
+  return longueur;
 }

@@ -1,9 +1,9 @@
-#ifndef DECLARATION_H
-#define DECLARATION_H
+#ifndef FILEATTENTE_HPP
+#define FILEATTENTE_HPP
 
 struct maillon
 {
-    int valeur;
+    char personne[20];
     maillon *suivant;
 };
 
@@ -14,9 +14,9 @@ struct FileAttente
 };
 
 FileAttente fileNouv();
-void AjouterQueue(FileAttente& file,int valeur);
+void ajouterQueue(FileAttente& file, char personne[20]);
 void retirerTete(FileAttente& file);
 void ConsulterTeteFile(FileAttente file);
-int longueurChaine(FileAttente file);
+int longueurFile(FileAttente file);
 
 #endif
