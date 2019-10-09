@@ -51,7 +51,7 @@ int main()
       case 5:
          cout << "Au Revoir" << endl << "Liberation de la memoire..." << endl;
          while (file.tete != nullptr) {
-           retirerTete(file);
+           retirerTete(file);               // on libère la mémoire
          }
          cout << file.queue << " " << file.tete << endl;
          continuer = false;
