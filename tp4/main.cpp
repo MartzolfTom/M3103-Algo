@@ -1,5 +1,6 @@
 #include <iostream>
 #include "FileAttente.hpp"
+#include "pile.hpp"
 using namespace std;
 
 int main()
@@ -7,6 +8,8 @@ int main()
    int choix;      // variable pour le menu
    bool continuer; // variable pour la repetition du menu
 
+   Pile pile;
+   pile = pileNouv();
    FileAttente file = fileNouv();
    char personne[20];
 
@@ -25,7 +28,9 @@ int main()
       cout << endl;
       cout << "4 : Calculer la longueur de la file d'attente";
       cout << endl;
-      cout << "5 : Quitter";
+      cout << "5 : Undo";
+      cout << endl;
+      cout << "6 : Quitter";
       cout << endl;
 
       cout << "saisir choix :";
@@ -37,9 +42,11 @@ int main()
       case 1:
          cout << "saisir une chaine a ajouter en queue : ";
          cin >> personne;
+         empiler(&pile, file);
          ajouterQueue(file, personne);
          break;
       case 2:
+         empiler(&pile, file);
          retirerTete(file);
          break;
       case 3:
@@ -48,13 +55,20 @@ int main()
       case 4:
          cout << "longueur de la chaine : " << longueurFile(file) << endl;
          break;
-      case 5:
+       case 5:
+          undo(&pile, &file);
+          depiler(&pile, &file);
+          break;
+      case 6:
          cout << "Au Revoir" << endl << "Liberation de la memoire..." << endl;
          while (file.tete != nullptr) {
            retirerTete(file);               // on libère la mémoire
          }
          cout << file.queue << " " << file.tete << endl;
          continuer = false;
+         break;
+      case 7:
+         consulterFile(file);
          break;
       default:
          cout << "erreur";

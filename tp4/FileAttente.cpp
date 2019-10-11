@@ -56,7 +56,6 @@ void ajouterQueue(FileAttente& file, char personne[20])
   if (file.tete == nullptr)
   {
     file.tete = nouvMaillon;
-    file.queue = nouvMaillon;
   }
   else
   {
@@ -92,7 +91,7 @@ void retirerTete(FileAttente &file)
     file.tete = buffer;
   }
 
-  //si jamais la longueur ed la chaine est de 0 ou 1, alors la queue est la même que la tete
+  //si jamais la longueur de la chaine est de 0 ou 1, alors la queue est la même que la tete
   if (longueurFile(file) <= 1) {
     file.queue = file.tete;
   }
@@ -121,6 +120,17 @@ void ConsulterTeteFile(FileAttente file)
   {         // affichage du contenu du maillon en tête de la file
     cout << "Valeur de la tete de file : " << (*file.tete).personne << endl;
   }
+}
+
+void consulterFile(FileAttente file){
+    maillon *maillon;
+    maillon = file.tete;
+
+    while ((*maillon).suivant != nullptr) {
+      cout << (*maillon).personne << " | ";
+      maillon = (*maillon).suivant;
+    }
+    cout << (*maillon).personne << " |" << endl;
 }
 
 //////////////////////////////////////////////////////////////////

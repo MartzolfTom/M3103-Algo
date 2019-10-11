@@ -56,7 +56,6 @@ void ajouterQueue(FileAttente& file, char personne[20])
   if (file.tete == nullptr)
   {
     file.tete = nouvMaillon;
-    file.queue = nouvMaillon;
   }
   else
   {
