@@ -42,7 +42,7 @@ void ajouterQueue(FileAttente& file, char personne[20])
   //on prepare un nouveau maillon a ajouter a notre file
   int i = 0;
   maillon *nouvMaillon;
-  nouvMaillon = new maillon();
+  nouvMaillon = new maillon();""
 
   //on rentre la chaine en entree dans le maillon en preparation
   while (personne[i] != '\0') {
@@ -56,6 +56,7 @@ void ajouterQueue(FileAttente& file, char personne[20])
   if (file.tete == nullptr)
   {
     file.tete = nouvMaillon;
+    file.queue = nouvMaillon;
   }
   else
   {

@@ -1,0 +1,67 @@
+
+Fonction pileNouv() retourne Pile
+Debut
+  Avec
+   pile : pile
+    pile.maillonPile <- null
+    retourne pile
+Fin
+
+procédure empiler(Pile *pile, FileAttente file)
+Debut
+  Avec
+    buffer : pointeur maillonFile
+    fileTemp : FileAttente
+    fileTemp <- copieFile(file)
+
+    buffer <- nouveau MaillonPile
+    (contenu buffer).file <- fileTemp
+    (contenu buffer).suivant <- (contenu pile).maillonPile
+
+    (contenu pile).maillonPile <- buffer
+Fin
+
+procédure depiler(Pile *pile, FileAttente *file)
+debut
+  Avec
+    buffer : pointeur maillonPile
+    buffer <- (contenu pile).maillonPile
+
+    (contenu pile).maillonPile <- (contenu buffer).suivant
+    supprimer buffer
+Fin
+
+Fonction copieFile(FileAttente file) retourne FileAttente
+Debut
+  Avec
+    //on va creer une nouvelle file qui contiendra les memes valeurs que celles passees en parametres, mais dont les adresses
+    //memoires seront differentes
+    nouvelleFile : fileAttente
+    nouvelleFile <- fileNouv()
+
+    //si la file qu'on passe est vide, on renvoie une file vide
+    si (file.tete = null) alors
+      retourne nouvelleFile
+    //sinon on copie les valeurs de la file dans la nouvelle
+    sinon
+      //on va utiliser 2 maillon pour chacunes des files
+      adresse maillonFile : pointeur maillon <- file.tete
+      //maillon *maillonNouvelleFile <- nouvelleFile.tete
+      personne[20] : caractère
+
+      tant que ((contenu maillonFile).suivant !<- nullptr) faire
+        ajouterQueue(nouvelleFile, (contenu maillonFile).personne)
+        adresse maillonFile <- (contenu maillonFile).suivant
+      fin faire
+      ajouterQueue(nouvelleFile, (contenu maillonFile).personne)
+
+      retourne nouvelleFile
+    fin si
+Fin
+
+procédure undo(Pile *pile, FileAttente *file)
+debut
+  Avec
+  contenu file <- (contenu (contenu pile).maillonPile).file
+  afficher "Retour en arriere" 
+Fin

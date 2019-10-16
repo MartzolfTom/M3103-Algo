@@ -1,0 +1,83 @@
+fonction fileNouv() retourne FileAttente
+Debut
+  Avec
+     file : fileAttente
+
+     file.tete <- null
+     file.queue <- null
+
+     retourne file
+fin
+
+procedure ajouterQueue(file : FileAttente, personne[20] : caractere; file : FileAttente)
+debut
+  Avec
+    //on prepare un nouveau maillon a ajouter a notre file
+    i : entier
+    i <- 0
+    nouvMaillon : pointeur maillon
+    nouvMaillon = nouveau maillon
+
+  //on rentre la chaine en entree dans le maillon en preparation
+  tant que (personne[i] != '\0') faire
+    (contenu nouvMaillon).personne[i] <- personne[i]
+    i++
+  }
+  (contenu nouvMaillon).personne[i] <- '\0'
+
+  //on attribue ce nouveau maillon a notre file
+  (contenu nouvMaillon).suivant <- null
+  si (file.tete = null) alors
+    file.tete <- nouvMaillon
+    file.queue <- nouvMaillon
+  sinon
+    (contenu file.queue).suivant <- nouvMaillon
+  fin si
+
+  file.queue = nouvMaillon;
+fin
+
+procédure retirerTete(;file : FileAttente)
+Debut
+  Avec
+    si file.tete = null alors
+        afficher "Il n'y a rien a supprimmer."
+    sinon
+      buffer : pointeur maillon
+      buffer <- (contenu file.tete).suivant
+      supprimmer file.tete;
+      file.tete <- adresse buffer
+    finsi
+
+    //si jamais la longueur ed la chaine est de 0 ou 1, alors la queue est la meme que la tete
+    si longueurFile(file) <= 1 alors
+      file.queue <- adresse file.tete;
+    finsi
+Fin
+
+procedure ConsulterTeteFile(file : FileAttente;)
+debut
+  si (file.tete = null) alors
+    Afficher "La file est vide."
+    Retour a la ligne
+  sinon
+    Afficher "Valeur de la tete de file : " + (*file.tete).personne
+    Retour a la ligne
+  fin si
+fin
+
+fonction longueurFile(file : FileAttente) retourne entier
+Debut
+  Avec
+    maillon : pointeur maillon
+    longueur : entier
+    longeur <- 0
+    maillon <- file.tete
+
+    Tant que (adresse maillon) != null faire
+      maillon <- (contenu maillon).suivant
+      longueur <- longueur + 1
+    fin faire
+
+  retourne longueur
+Fin
