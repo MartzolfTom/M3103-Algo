@@ -8,11 +8,11 @@ using namespace std;
 //
 //Entrees : rien
 //
-//Sorties : retourne une variable de type Pile vide
+//Retourne : une variable de type Pile vide
 //
 //Pre-Conditions : aucune
 //
-//Post-Condition : aucune
+//Post-Condition : retourne une pile qui ne contient pas de file d'attente
 //////////////////////////////////////////////////////////////////
 
 Pile pileNouv(){   // attribution mémoire de la pile
@@ -22,15 +22,16 @@ Pile pileNouv(){   // attribution mémoire de la pile
 }
 
 //////////////////////////////////////////////////////////////////
-//Description : procédure qui ajoute une fille d'attente au sommet d'une pile
+//Description : procédure qui ajoute une file d'attente au sommet d'une pile
 //
 //Entrees : 2 variables de types : pile et fileAttente
 //
 //Sorties : rien
 //
-//Pre-Conditions : aucune
+//Pre-Conditions : la file est supposee non vide
 //
-//Post-Condition : aucune
+//Post-Condition : modifie la pile en entree qui ressort avec une file d'attente
+//en plus
 //////////////////////////////////////////////////////////////////
 
 void empiler(Pile *pile, FileAttente file){
@@ -52,9 +53,10 @@ void empiler(Pile *pile, FileAttente file){
 //
 //Sorties : rien
 //
-//Pre-Conditions : aucune
+//Pre-Conditions : la file d'attente n'est pas vide
 //
-//Post-Condition : aucune
+//Post-Condition : modifie la pile qui aura une longueur n - 1
+//par rapport a avant
 //////////////////////////////////////////////////////////////////
 
 void depiler(Pile *pile, FileAttente *file){
@@ -70,11 +72,12 @@ void depiler(Pile *pile, FileAttente *file){
 //
 //Entrees : 1 variable de type : fileAttente
 //
-//Sorties : 1 variable de type : fileAttente
+//Retourne : 1 variable de type : fileAttente
 //
-//Pre-Conditions : aucune
+//Pre-Conditions : la file n'est pas vide
 //
-//Post-Condition : aucune
+//Post-Condition : la file en sortie contient les memes valeurs que
+//celle en entree
 //////////////////////////////////////////////////////////////////
 
 FileAttente copieFile(FileAttente file){
@@ -91,7 +94,6 @@ FileAttente copieFile(FileAttente file){
   else{
     //on va utiliser 2 maillon pour chacunes des files
     maillon *maillonFile = file.tete;
-    //maillon *maillonNouvelleFile = nouvelleFile.tete;
     char personne[20];
 
     while((*maillonFile).suivant != nullptr){
@@ -111,7 +113,7 @@ FileAttente copieFile(FileAttente file){
 //
 //Sorties : rien
 //
-//Pre-Conditions : aucune
+//Pre-Conditions : la file d'attente n'est pas vide
 //
 //Post-Condition : aucune
 //////////////////////////////////////////////////////////////////

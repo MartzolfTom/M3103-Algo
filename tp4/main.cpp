@@ -62,13 +62,10 @@ int main()
       case 6:
          cout << "Au Revoir" << endl << "Liberation de la memoire..." << endl;
          while (file.tete != nullptr) {
-           retirerTete(file);               // on libère la mémoire
+           retirerTete(file);               // on libère la mémoire lorsque l'on quitte l'application
          }
          cout << file.queue << " " << file.tete << endl;
          continuer = false;
-         break;
-      case 7:
-         consulterFile(file);
          break;
       default:
          cout << "erreur";

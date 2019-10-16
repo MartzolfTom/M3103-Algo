@@ -72,9 +72,10 @@ void ajouterQueue(FileAttente& file, char personne[20])
 //
 //Sorties : variable de type FileAttente
 //
-//Pre-Conditions :
+//Pre-Conditions : aucune
 //
-//Post-Condition : aucune
+//Post-Condition : modifie la file d'attente avec une longueur n-1
+//                 par rapport a celle en entree
 //////////////////////////////////////////////////////////////////
 
 void retirerTete(FileAttente &file)
@@ -106,7 +107,7 @@ void retirerTete(FileAttente &file)
 //Sorties : variable de type FileAttente
 //
 //Pre-Conditions : le taleau de caractère ne doit pas excéder
-//                 caractères
+//                 le nombre de caractères
 //Post-Condition : aucune
 //////////////////////////////////////////////////////////////////
 
@@ -122,17 +123,6 @@ void ConsulterTeteFile(FileAttente file)
   }
 }
 
-void consulterFile(FileAttente file){
-    maillon *maillon;
-    maillon = file.tete;
-
-    while ((*maillon).suivant != nullptr) {
-      cout << (*maillon).personne << " | ";
-      maillon = (*maillon).suivant;
-    }
-    cout << (*maillon).personne << " |" << endl;
-}
-
 //////////////////////////////////////////////////////////////////
 //Description : fonction retournant la nombre de maillon dans la file d'attente
 //
@@ -140,7 +130,7 @@ void consulterFile(FileAttente file){
 //
 //Sorties : entier ( nombre de maillon de la file)
 //
-//Pre-Conditions :
+//Pre-Conditions : aucune
 //
 //Post-Condition : aucune
 //////////////////////////////////////////////////////////////////

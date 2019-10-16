@@ -22,6 +22,5 @@ void ajouterQueue(FileAttente& file, char personne[20]);
 void retirerTete(FileAttente& file);
 void ConsulterTeteFile(FileAttente file);
 int longueurFile(FileAttente file);
-void consulterFile(FileAttente file);
 
 #endif
