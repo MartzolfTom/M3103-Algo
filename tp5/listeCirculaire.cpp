@@ -4,23 +4,29 @@ using namespace std;
 
 
 listeCirculaire init(){
+//initialisation de la liste
+  listeCirculaire *liste = new listeCirculaire();
+  (*liste).tete = nullptr;
 
-  listeCirculaire liste;
-  liste.tete = nullptr;
-
-  return liste;
+  return *liste;
 
 }
 
 void consulterChaine(listeCirculaire liste){
-  maillon *parcours = liste.tete;
-
-  //on parcours toute la liste
-  while ((*parcours).suivant != liste.tete) {
-    cout << (*parcours).numero << " | ";
-    parcours = (*parcours).suivant;
+  if ( liste.tete == nullptr) {
+    cout << endl<< "La liste est vide" << endl;
   }
-  cout << (*parcours).numero << " |" << endl;
+  else{
+    maillon *parcours = liste.tete;
+
+    //on parcours toute la liste
+    while ((*parcours).suivant != liste.tete) {
+      cout << (*parcours).numero << " | ";
+      parcours = (*parcours).suivant;
+    }
+    cout << (*parcours).numero << " |"<<endl;
+  }
+
 }
 
 void rotationCirculaire(listeCirculaire *liste){
@@ -29,21 +35,31 @@ void rotationCirculaire(listeCirculaire *liste){
 }
 
 void insererMaillon(listeCirculaire *liste, int entier){
-  //preparation du nouveau maillon a inserer
-  maillon *nouvMaillon;
-  (*nouvMaillon).numero = entier;
-  (*nouvMaillon).suivant = (*liste).tete;
 
-  //on parcours la liste jusqu'à atteindre l'avant dernier de notre listeCirculaire
-  maillon *avantDernier;
-  while ((*avantDernier).suivant != (*liste).tete) {
-    avantDernier = (*avantDernier).suivant;
+  if ((*liste).tete == nullptr) {
+    maillon *tete = new maillon();
+    (*tete).numero = entier;
+    (*tete).suivant = tete;
+    (*liste).tete = tete;
+  }
+  else {
+    //preparation du nouveau maillon a inserer
+    maillon *nouvMaillon = new maillon();
+    (*nouvMaillon).numero = entier;
+    (*nouvMaillon).suivant = (*liste).tete;
+
+    //on parcours la liste jusqu'à atteindre l'avant dernier de notre listeCirculaire
+    maillon *dernier = (*liste).tete;
+    while ((*dernier).suivant != (*liste).tete) {
+      dernier = (*dernier).suivant;
+    }
+
+    //on met en place le nouveau maillon entre l'avant dernier et le premier, et on redirige la tete de file
+    //vers ce nouveau maillon
+    (*dernier).suivant = nouvMaillon;
+    (*liste).tete = nouvMaillon;
   }
 
-  //on met en place le nouveau maillon entre l'avant dernier et le premier, et on redirige la tete de file
-  //vers ce nouveau maillon
-  (*avantDernier).suivant = nouvMaillon;
-  (*liste).tete = nouvMaillon;
 
 }
 
@@ -52,9 +68,12 @@ int longueurListe(listeCirculaire liste)
   maillon *maillon;
   int longueur = 0;
   maillon = liste.tete;
-
-  while ((*maillon).suivant != liste.tete) {
-    maillon = (*maillon).suivant;
+ // parcours de la liste
+  if (liste.tete != nullptr) {
+    while ((*maillon).suivant != liste.tete) {
+      maillon = (*maillon).suivant;
+      longueur++;
+    }
     longueur++;
   }
 

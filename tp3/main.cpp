@@ -46,7 +46,7 @@ int main()
          ConsulterTeteFile(file);
          break;
       case 4:
-         cout << "longueur de la chaine : " << longueurFile(file) << endl;
+         cout << "longueur de la chaine : " << longueurFile(file) << endl<<endl;
          break;
       case 5:
          cout << "Au Revoir" << endl << "Liberation de la memoire..." << endl;
