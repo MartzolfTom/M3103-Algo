@@ -24,9 +24,39 @@ void consulterChaine(listeCirculaire liste){
       cout << (*parcours).numero << " | ";
       parcours = (*parcours).suivant;
     }
-    cout << (*parcours).numero << " |"<<endl;
+    cout << (*parcours).numero << " |" << endl;
   }
 
+}
+
+void retirerMaillonTete(listeCirculaire *liste){
+  if ((*liste).tete == nullptr) {
+    cout << "La liste est vide." << endl << endl;
+  } else {
+
+    //on se positionne sur le dernier maillon et sur le maillon suivant de la tete
+    maillon *suivantTete = (*(*liste).tete).suivant;
+
+    maillon *dernier = (*liste).tete;
+    while ((*dernier).suivant != (*liste).tete) {
+      dernier = (*dernier).suivant;
+    }
+
+    //on fait pointer notre nouveau maillon sur le suivant de la tete
+    (*dernier).suivant = suivantTete;
+
+    //on libere la memoire de la tete
+    delete (*liste).tete;
+
+    //si il existe un suivant on fait pointer notre tete sur notre nouvelle tete
+    if (suivantTete == nullptr) {
+      (*liste).tete = suivantTete;
+    }
+    else {
+      (*liste).tete = nullptr;
+    }
+
+  }
 }
 
 void rotationCirculaire(listeCirculaire *liste){

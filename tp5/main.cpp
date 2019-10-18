@@ -38,9 +38,7 @@ int main()
          insererMaillon(&liste, valeur);
        } break;
       case 2:
-      /*
-         empiler(&pile, file);
-         retirerTete(file);*/
+         retirerMaillonTete(&liste);
          break;
       case 3:
          consulterChaine(liste);
@@ -50,11 +48,9 @@ int main()
          break;
       default:
          cout << "erreur";
-         choix=0;
+         choix = 0;
          break;
       }
    }
-   cout << " test";
-   cin >> choix;
    return 0;
 }

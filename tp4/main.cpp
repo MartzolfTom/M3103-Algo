@@ -56,7 +56,9 @@ int main()
          cout << "longueur de la chaine : " << longueurFile(file) << endl;
          break;
        case 5:
+       //si la pile est vide, on ne fait rien
        if ( (pile.maillonPile) != nullptr){
+         //si on peut revenir en arriere, on réupère la file précédente avec undo, puis on depile la pile avec depiler
          undo(&pile, &file);
          depiler(&pile, &file);
        }
