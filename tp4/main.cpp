@@ -56,8 +56,10 @@ int main()
          cout << "longueur de la chaine : " << longueurFile(file) << endl;
          break;
        case 5:
-          undo(&pile, &file);
-          depiler(&pile, &file);
+       if ( (pile.maillonPile) != nullptr){
+         undo(&pile, &file);
+         depiler(&pile, &file);
+       }
           break;
       case 6:
          cout << "Au Revoir" << endl << "Liberation de la memoire..." << endl;
