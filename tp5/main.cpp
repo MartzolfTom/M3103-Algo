@@ -44,7 +44,7 @@ int main()
          consulterChaine(liste);
          break;
       case 4:
-         cout <<endl<< "longueur de la liste : " << longueurListe(liste) << endl;
+         cout <<endl<< "longueur de la liste : " << longueurListe(liste, liste.tete) << endl;
          break;
       default:
          cout << "erreur";

@@ -15,6 +15,6 @@ void consulterChaine(listeCirculaire liste);
 void rotationCirculaire(listeCirculaire *liste);
 void insererMaillon(listeCirculaire *liste, int entier);
 void retirerMaillonTete(listeCirculaire *liste);
-int longueurListe(listeCirculaire liste);
+int longueurListe(listeCirculaire liste, maillon *maillon);
 
 #endif
