@@ -64,7 +64,7 @@ void rotationCirculaire(listeCirculaire *liste){
   (*liste).tete = (*(*liste).tete).suivant;
 }
 
-void insererMaillon(listeCirculaire *liste, int entier){
+void insererMaillon(listeCirculaire *liste, int valeur){
 
   if ((*liste).tete == nullptr) {
     maillon *tete = new maillon();

@@ -1,0 +1,106 @@
+
+fonction init() retourne listeCirculaire
+Debut
+  Avec
+  //initialisation de la liste
+  liste : pointeur liste circulaire
+  liste <- nouveau listeCirculaire
+  (contenu liste).tete <- null
+
+  retourne contenu liste
+Fin
+
+procédure consulterChaine(liste : listeCirculaire)
+Debut
+  Avec
+    si ( adresse liste.tete = null) alors
+      afficher "La liste est vide"
+    sinon
+      parcours : pointeur maillon <- adresse liste.tete
+
+      //on parcours toute la liste
+      tant que ((contenu parcours).suivant != adresse liste.tete) faire
+        afficher (contenu parcours).numero
+        parcours <- (contenu parcours).suivant
+      fin faire
+      afficher (contenu parcours).numero
+    fin si
+Fin
+
+procédure retirerMaillonTete(liste : pointeur listeCirculaire)
+Debut
+Avec
+  si ((contenu liste).tete = null) alors
+    afficher "La liste est vide."
+  sinon
+    //on se positionne sur le dernier maillon et sur le maillon suivant de la tete
+    suivantTete : pointeur maillon <- (contenu (contenu liste).tete).suivant
+
+    dernier : pointeur maillon <- (contenu liste).tete
+    tant que ((contenu dernier).suivant != (contenu liste).tete) faire
+      dernier <- (contenu dernier).suivant
+    fin faire
+
+    //on fait pointer notre nouveau maillon sur le suivant de la tete
+    (contenu dernier).suivant <- adresse suivantTete
+
+    //on libere la memoire de la tete
+    supprimer (contenu liste).tete
+
+    //si il existe un suivant on fait pointer notre tete sur notre nouvelle tete
+    si (adresse suivantTete = null) alors
+      (contenu liste).tete <- adresse suivantTete
+    sinon
+      (contenu liste).tete <- null
+    fin si
+  fin si
+Fin
+
+procédure rotationCirculaire(liste : pointeur listeCirculaire)
+Debut
+  //on replace notre tete de file vers le suivant
+  (contenu liste).tete <- (contenu (contenu liste).tete).suivant
+Fin
+
+procédure insererMaillon(liste : pointeur listeCirculaire, valeur : entier)
+Debut
+  Avec
+    si ((contenu liste).tete = null) alors
+      tete : pointeur maillon <- nouveau maillon
+      (contenu tete).numero <- valeur
+      (contenu tete).suivant <- adresse tete
+      (contenu liste).tete <- adresse tete
+    sinon
+      //preparation du nouveau maillon a inserer
+      nouvMaillon : pointeur maillon <- nouveau maillon
+      (contenu nouvMaillon).numero <- valeur
+      (contenu nouvMaillon).suivant <- (contenu liste).tete
+
+      //on parcours la liste jusqu'à atteindre l'avant dernier de notre listeCirculaire
+      dernier : pointeur maillon <- (contenu liste).tete
+      tant que ((contenu dernier).suivant != (contenu liste).tete) faire
+        adresse dernier <- (contenu dernier).suivant
+      fin faire
+
+      //on met en place le nouveau maillon entre l'avant dernier et le premier, et on redirige la tete de file
+      //vers ce nouveau maillon
+      (contenu dernier).suivant <- adresse nouvMaillon
+      (contenu liste).tete <- adresse nouvMaillon
+    fin si
+Fin
+
+fonction longueurListe(liste : listeCirculaire, maillon : pointeur maillon) retourne entier
+debut
+  Avec
+    longueur : entier <- 0
+    // parcours de la liste
+    si (adresse liste.tete = null) alors
+      retourne 0
+    sinon si ((contenu maillon).suivant != adresse liste.tete ) alors
+      retourne ( 1 + longueurListe(liste , (contenu maillon).suivant))
+    sinon
+      retourne 1
+    fin si
+
+    retourne longueur 
+Fin

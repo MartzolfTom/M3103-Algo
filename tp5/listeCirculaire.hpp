@@ -13,7 +13,7 @@ struct listeCirculaire{
 listeCirculaire init();
 void consulterChaine(listeCirculaire liste);
 void rotationCirculaire(listeCirculaire *liste);
-void insererMaillon(listeCirculaire *liste, int entier);
+void insererMaillon(listeCirculaire *liste, int valeur);
 void retirerMaillonTete(listeCirculaire *liste);
 int longueurListe(listeCirculaire liste, maillon *maillon);
 
