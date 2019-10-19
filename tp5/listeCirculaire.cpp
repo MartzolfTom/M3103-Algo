@@ -68,14 +68,14 @@ void insererMaillon(listeCirculaire *liste, int valeur){
 
   if ((*liste).tete == nullptr) {
     maillon *tete = new maillon();
-    (*tete).numero = entier;
+    (*tete).numero = valeur;
     (*tete).suivant = tete;
     (*liste).tete = tete;
   }
   else {
     //preparation du nouveau maillon a inserer
     maillon *nouvMaillon = new maillon();
-    (*nouvMaillon).numero = entier;
+    (*nouvMaillon).numero = valeur;
     (*nouvMaillon).suivant = (*liste).tete;
 
     //on parcours la liste jusqu'à atteindre l'avant dernier de notre listeCirculaire
