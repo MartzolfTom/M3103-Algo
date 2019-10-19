@@ -95,7 +95,6 @@ void insererMaillon(listeCirculaire *liste, int valeur){
 
 int longueurListe(listeCirculaire liste, maillon *maillon)
 {
-  int longueur = 0;
   // parcours de la liste
   if(liste.tete == nullptr){
     return 0;
@@ -104,6 +103,4 @@ int longueurListe(listeCirculaire liste, maillon *maillon)
     return ( 1 + longueurListe(liste,(*maillon).suivant));
   }
   else{ return 1;}
-
-  return longueur;
 }

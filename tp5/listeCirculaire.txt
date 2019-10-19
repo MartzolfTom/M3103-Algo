@@ -92,7 +92,6 @@ Fin
 fonction longueurListe(liste : listeCirculaire, maillon : pointeur maillon) retourne entier
 debut
   Avec
-    longueur : entier <- 0
     // parcours de la liste
     si (adresse liste.tete = null) alors
       retourne 0
@@ -102,5 +101,4 @@ debut
       retourne 1
     fin si
 
-    retourne longueur 
 Fin
