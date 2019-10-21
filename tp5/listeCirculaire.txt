@@ -27,39 +27,46 @@ Debut
     fin si
 Fin
 
-procédure retirerMaillonTete(liste : pointeur listeCirculaire)
-Debut
-Avec
-  si ((contenu liste).tete = null) alors
-    afficher "La liste est vide."
+procedure retirerMaillonTete(liste : pointeur listeCirculaire){
+  si ( (contenu liste).tete == null) alors
+    Afficher "La liste est vide."
+    Retour a la ligne
   sinon
-    //on se positionne sur le dernier maillon et sur le maillon suivant de la tete
-    suivantTete : pointeur maillon <- (contenu (contenu liste).tete).suivant
-
-    dernier : pointeur maillon <- (contenu liste).tete
-    tant que ((contenu dernier).suivant != (contenu liste).tete) faire
-      dernier <- (contenu dernier).suivant
-    fin faire
-
-    //on fait pointer notre nouveau maillon sur le suivant de la tete
-    (contenu dernier).suivant <- adresse suivantTete
-
-    //on libere la memoire de la tete
-    supprimer (contenu liste).tete
-
-    //si il existe un suivant on fait pointer notre tete sur notre nouvelle tete
-    si (adresse suivantTete = null) alors
-      (contenu liste).tete <- adresse suivantTete
+    //si il n'y a qu'un seul maillon dans la liste
+    si (longueurListe((contenu liste), (contenu liste).tete) = 1) alors
+      detruire (contenu liste).tete
+      (contenu liste).tete = nullptr
+    //si il y a plus d'un maillon dans la liste
     sinon
-      (contenu liste).tete <- null
+      //on se positionne sur le dernier maillon et sur le maillon suivant de la tete
+      suivantTete : pointeur maillon
+      suivantTete = (contenu (contenu liste).tete).suivant
+
+      dernier : pointeur maillon
+      dernier = (contenu liste).tete
+      tant que ((contenu dernier).suivant != (contenu liste).tete) faire
+        dernier = (contenu dernier).suivant
+      fin faire
+
+      //on fait pointer notre nouveau maillon sur le suivant de la tete
+      (contenu dernier).suivant = suivantTete
+
+      //on libere la memoire de la tete et on la redirige
+      detruire (contenu liste).tete
+      (contenu liste).tete = suivantTete
     fin si
   fin si
-Fin
+Fin retirerMaillonTete
 
 procédure rotationCirculaire(liste : pointeur listeCirculaire)
 Debut
-  //on replace notre tete de file vers le suivant
-  (contenu liste).tete <- (contenu (contenu liste).tete).suivant
+  //lorsque la liste contient 0 ou 1 maillon, iln'y a pas de rotation a faire
+  si ( longueurListe((contenu liste), (contenu liste).tete) <=1 ) alors
+    Afficher "rotation impossible"
+  sinon
+    //on replace notre tete de file vers le suivant
+    (contenu liste).tete <- (contenu (contenu liste).tete).suivant
+  fin si
 Fin
 
 procédure insererMaillon(liste : pointeur listeCirculaire, valeur : entier)

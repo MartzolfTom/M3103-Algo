@@ -23,7 +23,9 @@ int main()
       cout << endl;
       cout << "3 : Consulter la liste circulaire";
       cout << endl;
-      cout << "4 : Calculer la longueur de la liste circulaire";
+      cout << "4 : Faire une rotation circulaire";
+      cout<< endl;
+      cout << "5 : Calculer la longueur de la liste circulaire";
       cout << endl;
 
       cout << "saisir choix :";
@@ -32,24 +34,33 @@ int main()
       { // structure selon affichant un menu pour le choix de l'exercice a execute
       //chaque choix appelle une procedure executant l'exercice en question
       // sauf le dernier choix permettant de quitter la structure selon
+      case 0:{
+        while (liste.tete != nullptr) {
+          retirerMaillonTete(&liste);
+        }
+        cout << "Libération de la mémoire" << endl << "Fermeture de l'application...";
+      } break;
       case 1:{
-         cout << "saisir valeur maillon a inserer  : ";
-         cin >> valeur;
-         insererMaillon(&liste, valeur);
+        cout << "saisir valeur maillon a inserer  : ";
+        cin >> valeur;
+        insererMaillon(&liste, valeur);
        } break;
       case 2:
-         retirerMaillonTete(&liste);
-         break;
+        retirerMaillonTete(&liste);
+        break;
       case 3:
-         consulterChaine(liste);
-         break;
+        consulterChaine(liste);
+        break;
       case 4:
-         cout <<endl<< "longueur de la liste : " << longueurListe(liste, liste.tete) << endl;
-         break;
+        rotationCirculaire(&liste);
+        break;
+      case 5:
+        cout <<endl<< "longueur de la liste : " << longueurListe(liste, liste.tete) << endl;
+        break;
       default:
-         cout << "erreur";
-         choix = 0;
-         break;
+        cout << "erreur";
+        choix = 0;
+        break;
       }
    }
    return 0;
