@@ -13,13 +13,13 @@ Fin
 procédure consulterChaine(liste : listeCirculaire)
 Debut
   Avec
-    si ( adresse liste.tete = null) alors
+    si ( liste.tete = null) alors
       afficher "La liste est vide"
     sinon
-      parcours : pointeur maillon <- adresse liste.tete
+      parcours : pointeur maillon <-  liste.tete
 
       //on parcours toute la liste
-      tant que ((contenu parcours).suivant != adresse liste.tete) faire
+      tant que ((contenu parcours).suivant != liste.tete) faire
         afficher (contenu parcours).numero
         parcours <- (contenu parcours).suivant
       fin faire
@@ -75,8 +75,8 @@ Debut
     si ((contenu liste).tete = null) alors
       tete : pointeur maillon <- nouveau maillon
       (contenu tete).numero <- valeur
-      (contenu tete).suivant <- adresse tete
-      (contenu liste).tete <- adresse tete
+      (contenu tete).suivant <-  tete
+      (contenu liste).tete <-  tete
     sinon
       //preparation du nouveau maillon a inserer
       nouvMaillon : pointeur maillon <- nouveau maillon
@@ -86,13 +86,13 @@ Debut
       //on parcours la liste jusqu'à atteindre l'avant dernier de notre listeCirculaire
       dernier : pointeur maillon <- (contenu liste).tete
       tant que ((contenu dernier).suivant != (contenu liste).tete) faire
-        adresse dernier <- (contenu dernier).suivant
+         dernier <- (contenu dernier).suivant
       fin faire
 
       //on met en place le nouveau maillon entre l'avant dernier et le premier, et on redirige la tete de file
       //vers ce nouveau maillon
-      (contenu dernier).suivant <- adresse nouvMaillon
-      (contenu liste).tete <- adresse nouvMaillon
+      (contenu dernier).suivant <-  nouvMaillon
+      (contenu liste).tete <-  nouvMaillon
     fin si
 Fin
 
@@ -100,9 +100,9 @@ fonction longueurListe(liste : listeCirculaire, maillon : pointeur maillon) reto
 debut
   Avec
     // parcours de la liste
-    si (adresse liste.tete = null) alors
+    si ( liste.tete = null) alors
       retourne 0
-    sinon si ((contenu maillon).suivant != adresse liste.tete ) alors
+    sinon si ((contenu maillon).suivant != liste.tete ) alors
       retourne ( 1 + longueurListe(liste , (contenu maillon).suivant))
     sinon
       retourne 1
